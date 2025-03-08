@@ -1,6 +1,11 @@
 [
 {
   "directory": "/Users/anirudh/UIUC/go-mama-27/personal-projects/thread-safe-vector",
-  "arguments": ["/Library/Developer/CommandLineTools/usr/bin/clang", "-c", "-Qunused-arguments", "-isysroot", "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-DNDEBUG", "-o", "build/.objs/thread-safe-vector/macosx/arm64/release/src/main.cpp.o", "src/main.cpp"],
+  "arguments": ["/Library/Developer/CommandLineTools/usr/bin/clang", "-c", "-Qunused-arguments", "-isysroot", "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-Iinclude", "-DNDEBUG", "-o", "build/.objs/thread-safe-vector/macosx/arm64/release/src/thread_safe_vector.cpp.o", "src/thread_safe_vector.cpp"],
+  "file": "src/thread_safe_vector.cpp"
+},
+{
+  "directory": "/Users/anirudh/UIUC/go-mama-27/personal-projects/thread-safe-vector",
+  "arguments": ["/Library/Developer/CommandLineTools/usr/bin/clang", "-c", "-Qunused-arguments", "-isysroot", "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-Iinclude", "-DNDEBUG", "-o", "build/.objs/thread-safe-vector/macosx/arm64/release/src/main.cpp.o", "src/main.cpp"],
   "file": "src/main.cpp"
 }]
