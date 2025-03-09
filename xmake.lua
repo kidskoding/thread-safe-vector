@@ -1,10 +1,21 @@
 add_rules("mode.debug", "mode.release")
 set_languages("c++17")
+add_requires("gtest", {system = false})
 
 target("thread-safe-vector")
-set_kind("binary")
-add_files("src/*.cpp")
-add_includedirs("include")
+    set_kind("binary")
+    add_files("src/*.cpp")
+    add_includedirs("src")
+    add_packages("gtest")
+    set_languages("c++17")
+
+target("tests")
+    set_kind("binary")
+    add_files("src/*.cpp")
+    add_tests("tests/*.cpp")
+    add_includedirs("src")
+    add_packages("gtest")
+    set_languages("c++17")
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
