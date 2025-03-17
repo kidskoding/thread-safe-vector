@@ -3,6 +3,7 @@
 
 #include <cstddef>
 #include <shared_mutex>
+#include <iostream>
 
 template <typename T>
 class ThreadSafeVector {
@@ -27,7 +28,7 @@ public:
     ThreadSafeVector(size_t initial_capacity = 10)
         : capacity(initial_capacity), current_size(0) {
 
-            this->data = new T[capacity];
+        this->data = new T[capacity];
     }
 
     ~ThreadSafeVector() {
@@ -98,6 +99,14 @@ public:
         this->capacity = 10;
         this->data = new T[capacity];
         this->current_size = 0;
+    }
+
+    friend std::ostream& operator<<(std::ostream& os, const ThreadSafeVector<T>& tsvec) {
+        std::shared_lock<std::shared_mutex> lock(tsvec.rw_mutex);
+        for(size_t i = 0; i < tsvec.current_size; i++) {
+            os << tsvec.data[i] << " ";
+        }
+        return os;
     }
 };
 

@@ -79,7 +79,7 @@ TEST(ThreadSafeVector, ConcurrentPushBack) {
     ThreadSafeVector<int> vec;
 
     auto task = [&vec]() {
-        for (int i = 0; i < 100; i++) {
+        for(int i = 0; i < 100; i++) {
             vec.push_back(i);
         }
     };
@@ -95,12 +95,12 @@ TEST(ThreadSafeVector, ConcurrentPushBack) {
 
 TEST(ThreadSafeVector, ConcurrentReadAccess) {
     ThreadSafeVector<int> vec;
-    for (int i = 0; i < 100; i++) {
+    for(int i = 0; i < 100; i++) {
         vec.push_back(i);
     }
 
     auto read_task = [&vec]() {
-        for (int i = 0; i < 100; i++) {
+        for(int i = 0; i < 100; i++) {
             vec.at(i);
         }
     };
