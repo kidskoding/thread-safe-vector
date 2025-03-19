@@ -10,7 +10,7 @@ target("thread-safe-vector")
     set_languages("c++17")
 
 target("tests")
-    set_kind("binary")
+    set_kind("static")
     add_files("src/*.cpp")
     add_tests("tests/*.cpp")
     add_includedirs("src")
