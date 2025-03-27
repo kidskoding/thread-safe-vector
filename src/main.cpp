@@ -1,4 +1,4 @@
-#include "thread_safe_vector.h"
+#include "thread_safe_vector.hpp"
 #include <iostream>
 
 int main() {
