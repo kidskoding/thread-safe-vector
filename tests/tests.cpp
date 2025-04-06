@@ -1,4 +1,4 @@
-#include "thread_safe_vector.h"
+#include "thread_safe_vector.hpp"
 #include <gtest/gtest.h>
 #include <thread>
 
@@ -14,17 +14,16 @@ protected:
 };
 
 TEST_F(ThreadSafeVectorTest, PushBackIncreasesSize) {
-    size_t old_size = vec.size();
+    size_t initial_size = vec.size();
     vec.push_back(40);
-    EXPECT_EQ(vec.size(), old_size + 1);
+    EXPECT_EQ(vec.size(), initial_size + 1);
 }
 
 TEST_F(ThreadSafeVectorTest, PopBackDecreasesSize) {
-    size_t old_size = vec.size();
+    size_t initial_size = vec.size();
     vec.pop_back();
-    EXPECT_EQ(vec.size(), old_size - 1);
+    EXPECT_EQ(vec.size(), initial_size - 1);
 }
-
 TEST(ThreadSafeVector, PopBackEmptyDoesNothing) {
     ThreadSafeVector<int> empty_vec;
     empty_vec.pop_back();
@@ -79,7 +78,7 @@ TEST(ThreadSafeVector, ConcurrentPushBack) {
     ThreadSafeVector<int> vec;
 
     auto task = [&vec]() {
-        for(int i = 0; i < 100; i++) {
+        for (int i = 0; i < 100; ++i) {
             vec.push_back(i);
         }
     };
@@ -95,12 +94,12 @@ TEST(ThreadSafeVector, ConcurrentPushBack) {
 
 TEST(ThreadSafeVector, ConcurrentReadAccess) {
     ThreadSafeVector<int> vec;
-    for(int i = 0; i < 100; i++) {
+    for (int i = 0; i < 100; ++i) {
         vec.push_back(i);
     }
 
     auto read_task = [&vec]() {
-        for(int i = 0; i < 100; i++) {
+        for (int i = 0; i < 100; ++i) {
             vec.at(i);
         }
     };

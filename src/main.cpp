@@ -1,5 +1,5 @@
-#include "thread_safe_vector.hpp"
 #include <iostream>
+#include "thread_safe_vector.hpp"
 
 int main() {
     ThreadSafeVector<int> tsvec;
